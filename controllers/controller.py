@@ -1,4 +1,4 @@
-from flask import render_template, request
+from flask import render_template, request, redirect
 from app import app
 from models.book_list import books, add_new_book, delete_book
 from models.book import Book
@@ -18,10 +18,9 @@ def add_book():
     add_new_book(new_book)
     return render_template('index.html', title='Home', books=books)
 
-@app.route('/books', methods=['POST'])
+@app.route('/books/delete/<title>', methods=['POST'])
 def delete(title):
     delete_book(title)
-    return render_template('index.html', title='Home', books=books)
-
+    return redirect('/books')
 
 

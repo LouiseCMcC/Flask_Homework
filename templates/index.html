@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+<link rel="stylesheet" href="/static/style.css"/
 {% block content %}
 
         <h1>Louise's Book List!</h1>
@@ -26,7 +27,7 @@
             <span> &#127812; </span>
             {% endif %}
 
-            <form action="/book/delete/{{ book.title }}" method="POST">
+            <form action="/books/delete/{{ book.title }}" method="POST">
                 <input type="submit" value="Delete">
               </form>
         
