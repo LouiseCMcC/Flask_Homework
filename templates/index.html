@@ -1,8 +1,8 @@
 {% extends "base.html" %}
-<link rel="stylesheet" href="/static/style.css"/
+<link rel="stylesheet" href="/static/style.css">
 {% block content %}
 
-        <h1>Louise's Book List!</h1>
+        <h1 id="main_header"> Louise's Book List!</h1>
         <form action="/books" method="post">
             <label for="title"> Title </label>
             <input type="text" name="title" id="title">
@@ -28,10 +28,10 @@
             <h3>{{ book.title }} :</h3>
             <h4>Author: {{ book.author }}, </h4>
             <h4>Genre: {{ book.genre }}</h4>
-            <h4>Checked Out: {% if book.checked_out %}
-                <span> &#127812; </span>
-                {% endif %} </h4>
             <h4>Return Date: {{ book.date }}</h4>
+            <h4>Checked Out: {% if book.checked_out %}
+                <span> &#10004; </span>
+                {% endif %} </h4>
             <a href="/books/{{books.index(book)}}"> Show Book </a>
 
             <form action="/book/delete/{{ book.title }}" method="POST">

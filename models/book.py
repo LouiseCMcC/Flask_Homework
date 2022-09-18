@@ -10,7 +10,7 @@ class Book():
         self.author = author
         self.genre = genre
         self.checked_out = checked_out
-        self.return_date = date
+        self.return_date = return_date
 
 
 
