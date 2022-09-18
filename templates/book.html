@@ -1,0 +1,24 @@
+<html>
+<head>
+        <title>{{title}} - Book </title>
+        <link rel="stylesheet" href="/static/style.css"/>
+
+    </head>
+    <body id="other_body">
+        <h1 id="my_other_header"> Book </h1>
+        
+        <p id="other_main_writing">
+        <h3>{{ book.title }}:</h3>
+        <h4>Author: {{ book.author }},</h4>
+        <h4>Genre: {{ book.genre }},</h4>
+        <h4>Checked Out: {% for book in books %}
+            {% if book.checked_out %}
+        <span> &#127812; </span>
+        {% endif %}
+        {% endfor %}</h4>
+        <h4>Return Date: {% book.return_date %}</h4>
+
+
+
+
+        </p>

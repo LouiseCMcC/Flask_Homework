@@ -16,23 +16,31 @@
             <label for="checked_out"> Checked Out? </label>
             <input type="text" name="checked_out" id="checked_out">
 
+            <label for="return_date"> Return Date </label>
+            <input type="date" name="date" id="date">
+
             <input type="submit" value="Add Book">
 
         </form>
+        <div class="book-container">
         {% for book in books %}
-        <div>
-            {{ book.title }}: {{ book.author }}, {{ book.genre }}
-            
-            {% if book.checked_out %}
-            <span> &#127812; </span>
-            {% endif %}
+        <div class="event">
+            <h3>{{ book.title }} :</h3>
+            <h4>Author: {{ book.author }}, </h4>
+            <h4>Genre: {{ book.genre }}</h4>
+            <h4>Checked Out: {% if book.checked_out %}
+                <span> &#127812; </span>
+                {% endif %} </h4>
+            <h4>Return Date: {{ book.date }}</h4>
+            <a href="/books/{{books.index(book)}}"> Show Book </a>
 
-            <form action="/books/delete/{{ book.title }}" method="POST">
+            <form action="/book/delete/{{ book.title }}" method="POST">
                 <input type="submit" value="Delete">
               </form>
         
         </div>
         {% endfor %}
+        </div>
     
 {% endblock %}
 
