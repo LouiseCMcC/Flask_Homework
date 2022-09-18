@@ -28,7 +28,7 @@
             <h3>{{ book.title }} :</h3>
             <h4>Author: {{ book.author }}, </h4>
             <h4>Genre: {{ book.genre }}</h4>
-            <h4>Return Date: {{ book.date }}</h4>
+            <h4>Return Date: {{ book.return_date.strftime('%d-%m-%Y') }}</h4>
             <h4>Checked Out: {% if book.checked_out %}
                 <span> &#10004; </span>
                 {% endif %} </h4>
